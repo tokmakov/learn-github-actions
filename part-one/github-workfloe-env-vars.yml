@@ -1,0 +1,48 @@
+# имя, которое будет показано в интерфейсе github.com
+name: learn-github-actions
+
+# список событий, при которых будут запускаться задания
+on:
+  # на push и pull_request, только для ветки master
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+  # позволяет запускать workflow вручную с вкладки actions в интерфейсе github.com
+  workflow_dispatch:
+
+# эта переменная на самом верхнем уровне, поэтому будет доступна везде
+env:
+  WORKFLOW_NAME: Learn github actions
+
+# одно или несколько заданий, которые могут быть запущены параллельно или последовательно
+jobs:
+  # у этого workflow всего одна задача single
+  single:
+    # задание будет выполняться на последней версии Ubuntu
+    runs-on: ubuntu-latest
+    # переменная уровня задания single
+    env:
+      job_name: single job
+
+    # шаги задания запускаются последовательно
+    steps:
+      # при выполнении задания будет доступен наш репозиторий
+      - uses: actions/checkout@v3
+
+      # запуск одной shell-команды
+      - name: Run step one
+        run: echo "Single job, step one, single command"
+
+      # запуск двух shell-команд
+      - name: Run step two
+        # переменные уровня этого шага
+        env:
+          step_name: step two
+          command1: command one
+          command2: command two
+        run: |
+          # можем использовать переменные верхнего уровня, переменные уровня задания single и уровня этого шага
+          echo "$WORKFLOW_NAME: $job_name, $step_name, $command1"
+          echo "$WORKFLOW_NAME: $job_name, $step_name, $command2"

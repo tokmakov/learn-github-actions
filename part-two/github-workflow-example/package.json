@@ -1,0 +1,18 @@
+{
+    "scripts": {
+        "start": "browser-sync start --server src --no-notify --no-ui --cwd src --files index.html,css/**/*",
+        "lint": "editorconfig-checker --exclude node_modules",
+        "html": "html-minifier --remove-comments --collapse-whitespace --input-dir src --output-dir dist --file-ext html",
+        "css": "postcss src/css/index.css --use postcss-import --use postcss-csso --no-map --output dist/css/index.css",
+        "build": "npm run html && npm run css",
+        "deploy": "rsync --archive --delete ./dist/ timeweb-hosting:/home/c/ca18939/github-actions-one/public_html"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.27.10",
+        "editorconfig-checker": "^4.0.2",
+        "html-minifier": "^4.0.0",
+        "postcss-cli": "^9.1.0",
+        "postcss-csso": "^6.0.0",
+        "postcss-import": "^14.1.0"
+    }
+}

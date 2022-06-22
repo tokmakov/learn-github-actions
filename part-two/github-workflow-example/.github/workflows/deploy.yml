@@ -1,0 +1,43 @@
+name: Lint and deploy
+
+on:
+  push:
+
+jobs:
+  lint: # проверка кода линтером
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Lint new code
+        run: |
+          npm ci
+          npm run lint
+
+  deploy: # деплой на prod сервер
+    # на сервер выкладываем только ветку master
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+    # выкладываем, только если проверка успешна
+    needs: [lint]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+
+      - name: Build project
+        run: |
+          npm ci
+          npm run build
+      - name: Add ssh key
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.key }}" > ~/.ssh/key
+          chmod 600 ~/.ssh/key
+      - name: Deploy project
+        env:
+          options: ssh -i ~/.ssh/key -o StrictHostKeyChecking=no
+        run: |
+          rsync -e "$options" --archive --delete ./dist/ ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.WWW }}

@@ -1,0 +1,15 @@
+name: Custom Github JavaScript Action
+description: Call API and get user name
+
+inputs:
+  user_id:
+    description: User ID, from 1 to 10
+    required: true
+    default: 1
+outputs:
+  user_name:
+    description: Getted user name
+
+runs:
+  using: node16
+  main: dist/index.js
