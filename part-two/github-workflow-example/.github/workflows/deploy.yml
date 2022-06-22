@@ -34,7 +34,7 @@ jobs:
       - name: Add ssh key
         run: |
           mkdir ~/.ssh
-          echo "${{ secrets.key }}" > ~/.ssh/key
+          echo "${{ secrets.KEY }}" > ~/.ssh/key
           chmod 600 ~/.ssh/key
       - name: Deploy project
         env:
