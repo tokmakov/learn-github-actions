@@ -1,4 +1,4 @@
-# GitHub Actions. Начало работы 
+# GitHub Actions. Начало работы
 
 [GitHub Actions. Начало работы, часть 1 из 2](https://tokmakov.msk.ru/blog/item/706)
 
