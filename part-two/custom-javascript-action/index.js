@@ -8,7 +8,7 @@ const fetchUser = async (id) => {
 }
 
 try {
-    const id = core.getInput('user_id');
+    const id = core.getInput('user_id')
     fetchUser(id).then(user => {
         console.log(user.name)
         core.setOutput('user_name', user.name) // выходные данные

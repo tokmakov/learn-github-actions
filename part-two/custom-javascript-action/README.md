@@ -1,1 +1,3 @@
-# Create JavaScript code action
+# Создание action на JavaScript
+
+Позволяет получить имя пользователя по идентификатору, обращаясь к API сервиса `JSON Placeholder`. Входные данные — это `user_id`, выходные данные — это `user_name`. Для проверки работы `action` есть workflow файл.

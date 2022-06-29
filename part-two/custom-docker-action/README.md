@@ -1,1 +1,3 @@
-# Create Docker container action
+# Создание action на Docker
+
+Позволяет получить имя пользователя по идентификатору, обращаясь к API сервиса `JSON Placeholder`. Входные данные — это `user_id`, выходные данные — это `user_name`. Для проверки работы `action` есть workflow файл.
