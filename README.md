@@ -7,3 +7,11 @@ GitHub Actions — бесплатная для публичных репозит
 [GitHub Actions. Начало работы, часть 2 из 2](https://tokmakov.msk.ru/blog/item/707)
 
 Хорошо, общее представление о GitHub Actions у нас есть, теперь хотелось бы применить эти знания на практике. Давайте создадим небольшой проект, выложим его на GitHub, создадим для него workflow-файл, который будет запускать проверку кода линтером, выполнять сборку и деплоить на production сервер.
+
+---
+
+`part-two/github-workflow-example` — репозиторий с примером workflow для проверки кода и deploy на prod сервер
+`part-two/custom-docker-action` — пример action, который получает имя пользователя по идентификатору (Docker)
+`part-two/custom-javascript-action` — пример action, который получает имя пользователя по идентификатору (js-код)
+`part-two/local-docker-action` — локальный action, который отправляет сообщение в мессенджер (Docker)
+`part-two/local-javascript-action` — локальный action, который отправляет сообщение в  Telegram (js-код)
