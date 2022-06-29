@@ -10,8 +10,8 @@ GitHub Actions — бесплатная для публичных репозит
 
 ---
 
-- `part-two/github-workflow-example` — репозиторий с примером workflow для проверки кода и deploy на prod сервер
-- `part-two/custom-docker-action` — пример action, который получает имя пользователя по идентификатору (Docker)
-- `part-two/custom-javascript-action` — пример action, который получает имя пользователя по идентификатору (js-код)
-- `part-two/local-docker-action` — локальный action, который отправляет сообщение в мессенджер (Docker)
-- `part-two/local-javascript-action` — локальный action, который отправляет сообщение в  Telegram (js-код)
+- `part-two/github-workflow-example` — репозиторий с примером workflow файла для проверки кода линтером и deploy на production сервер
+- `part-two/custom-docker-action` — пример action, который через API сервиса JSON Placeholder получает имя пользователя по идентификатору (Docker)
+- `part-two/custom-javascript-action` — пример action, который через API сервиса JSON Placeholder получает имя пользователя по идентификатору (js-код)
+- `part-two/local-docker-action` — локальный action, который отправляет сообщение о результате задания в мессенджер Telegram (Docker)
+- `part-two/local-javascript-action` — локальный action, который отправляет сообщение  результате задания в мессенджер Telegram (js-код)
